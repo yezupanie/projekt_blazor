@@ -1,0 +1,55 @@
+@page "/cosmetics"
+
+<h3>Wykaz Kosmetyków</h3>
+
+<p>Oto lista naszych ulubionych kosmetyków. Kliknij w każdy produkt, aby dowiedzieć się więcej!</p>
+
+<h4>Lista Kosmetyków:</h4>
+<ul>
+    <li>Krem nawilżający - 50 ml</li>
+    <li>Szampon do włosów - 250 ml</li>
+    <li>Peeling do twarzy - 100 ml</li>
+    <li>Maska do włosów - 200 ml</li>
+    <li>Serum do twarzy - 30 ml</li>
+    <li>Żel do mycia twarzy - 150 ml</li>
+    <li>Odżywka do włosów - 200 ml</li>
+    <li>Tonik do twarzy - 100 ml</li>
+    <li>Hydratant do ciała - 200 ml</li>
+    <li>Pomadka ochronna - 5 ml</li>
+</ul>
+
+<h4>Formularz Kontaktowy:</h4>
+<form>
+    <label for="name">Imię:</label>
+    <input type="text" id="name" @bind="name" placeholder="Wpisz swoje imię" />
+    <label for="email">Email:</label>
+    <input type="email" id="email" @bind="email" placeholder="Wpisz swój email" />
+    <label for="message">Wiadomość:</label>
+    <textarea id="message" @bind="message" placeholder="Wpisz swoją wiadomość" rows="4"></textarea>
+    <button type="button" @onclick="SubmitForm">Wyślij</button>
+</form>
+<p>Wprowadzone imię: @name</p>
+<p>Wprowadzony email: @email</p>
+<p>Wiadomość: @message</p>
+
+<h4>Interaktywny Licznik Kosmetyków:</h4>
+<button @onclick="IncrementCounter">Zwiększ licznik</button>
+<p>Aktualna liczba kosmetyków wyświetlanych: @counter</p>
+
+@code {
+    private int counter = 0;
+    private string name = string.Empty;
+    private string email = string.Empty;
+    private string message = string.Empty;
+
+    private void IncrementCounter()
+    {
+        counter++;
+    }
+
+    private void SubmitForm()
+    {
+        // Możesz dodać logikę do obsługi formularza tutaj
+        Console.WriteLine($"Formularz wysłany. Wprowadzone imię: {name}, email: {email}, wiadomość: {message}");
+    }
+}
